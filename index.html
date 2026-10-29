@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turnamen by Luffy</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #10101c;
+      color: white;
+      text-align: center;
+    }
+    header {
+      background: #ff6b00;
+      padding: 25px 10px;
+    }
+    h1 { margin: 0; }
+    .card {
+      background: #202034;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 12px;
+    }
+    input, button {
+      width: 90%;
+      padding: 12px;
+      margin: 7px 0;
+      border: none;
+      border-radius: 7px;
+      box-sizing: border-box;
+    }
+    button {
+      background: #ff6b00;
+      color: white;
+      font-weight: bold;
+    }
+    li {
+      text-align: left;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>TURNAMEN BY LUFFY</h1>
+    <p>Turnamen Free Fire</p>
+  </header>
+
+  <div class="card">
+    <h2>Daftar Turnamen</h2>
+    <input id="nama" placeholder="Nama pemain">
+    <input id="idgame" placeholder="ID Free Fire">
+    <button onclick="daftar()">Daftar Sekarang</button>
+    <p id="pesan"></p>
+  </div>
+
+  <div class="card">
+    <h2>Daftar Peserta</h2>
+    <ol id="peserta"></ol>
+  </div>
+
+  <div class="card">
+    <h2>Klasemen</h2>
+    <p>Hasil pertandingan akan diumumkan di sini.</p>
+  </div>
+
+  <script>
+    function daftar() {
+      const nama = document.getElementById("nama").value.trim();
+      const id = document.getElementById("idgame").value.trim();
+
+      if (!nama || !id) {
+        document.getElementById("pesan").textContent =
+          "Isi nama dan ID Free Fire terlebih dahulu!";
+        return;
+      }
+
+      const item = document.createElement("li");
+      item.textContent = nama + " — ID: " + id;
+      document.getElementById("peserta").appendChild(item);
+
+      document.getElementById("pesan").textContent =
+        "Pendaftaran berhasil di perangkat ini!";
+      document.getElementById("nama").value = "";
+      document.getElementById("idgame").value = "";
+    }
+  </script>
+</body>
+</html>
+
